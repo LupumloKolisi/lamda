@@ -9,12 +9,13 @@ const setupUI = (user) => {
   if (user) {
     // account info
     db.collection('users').doc(user.uid).get().then(doc => {
+      const userData = doc.data();
       const html = `
-      <div>Logged in as ${user.email}</div>
-      <div>${doc.data().bio}</div>
-    `;
+        <div>Logged in as ${userData.email}</div>
+        <div>Role: ${userData.role}</div>
+      `;
       accountDetails.innerHTML = html;
-    })
+  })
 
     // toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
