@@ -13,7 +13,19 @@ app.use(express.static(staticPath));
 app.get('/', (req, res) => {
   res.render('index');
 });
+
 const PORT = process.env.PROCESS || 3000;
 app.listen(PORT, () => {
   console.log('port up');
 });
+
+
+app.get('/admin', (req, res) => {
+  
+});
+
+const PORT = process.env.PROCESS || 3000;
+app.listen(PORT, () => {
+  console.log('port up');
+});
+
